@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+    margin-bottom: 10rem;
+}
+
+.nav {
+  width: 100vw;
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.title-center {
+  font-size: 30px;
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.title-card {
+  margin-top: 10rem;
+  padding: 2rem;
+  font-size: 40px;
+  border-radius: 2rem;
+  /* border: 1px solid; */
+}
+.title-card p {
+  font-size: 20px;
+}
+.footer {
+  /* border: 1px solid; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer ul {
+  display: flex;
+}
+.footer ul li {
+  padding: 2rem;
+}
+
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
