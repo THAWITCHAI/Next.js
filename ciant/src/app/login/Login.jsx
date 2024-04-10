@@ -30,7 +30,7 @@ function Login() {
               Username
             </label>
             <input
-              required=""
+              required
               placeholder="User Name"
               type="text"
               className='className="shadow appearance-none border 

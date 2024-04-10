@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+
 function Register_page() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState(0);
   const [c_password, setC_password] = useState(0);
   const [id, setId] = useState(0);
+  const router = useRouter();
 
   const onSubmit = () => {
     if (password == c_password) {
@@ -16,7 +19,7 @@ function Register_page() {
           password: password,
         })
         .then(() => {
-          alert("Ok");
+          router.push("/login");
           // setContact([
           //   ...contact,
           //   {
@@ -33,12 +36,17 @@ function Register_page() {
     <div>
       <div className="container mx-auto  login">
         <div className="w-full max-w-xs">
-          <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form
+            action="/login"
+            onSubmit={onSubmit}
+            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          >
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">
                 ID
               </label>
               <input
+                required
                 onChange={(e) => {
                   setId(e.target.value);
                 }}
@@ -54,6 +62,7 @@ function Register_page() {
                 Username
               </label>
               <input
+                required
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -70,6 +79,7 @@ function Register_page() {
               </label>
 
               <input
+              required
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
@@ -104,8 +114,7 @@ function Register_page() {
             <div className="flex items-center justify-between">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
-                onClick={onSubmit}
+                type="submit"
               >
                 Register
               </button>
