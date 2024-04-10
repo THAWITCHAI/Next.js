@@ -20,13 +20,6 @@ function Register_page() {
         })
         .then(() => {
           router.push("/login");
-          // setContact([
-          //   ...contact,
-          //   {
-          //     name: name,
-          //     age: age,
-          //   },
-          // ]);
         });
     } else {
       alert("Passwords don't match");
