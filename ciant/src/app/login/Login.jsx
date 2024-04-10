@@ -1,24 +1,21 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
 import axios from "axios";
 function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState(0);
-
+  const router = useRouter();
   const onSubmit = () => {
-    axios.get('http://localhost:3520/api')
-      .then((res) => {
-        res.data.find((e)=>{
-          console.log(e)
-        })
-        res.data.map((item)=>{
-          if(name==item.name&&password==item.password){
-            console.log("Log in Successfully")
-          }else{
-            alert("Login Fail")
-          }
-        })
+    axios.get("http://localhost:3520/api").then((res) => {
+      res.data.map((item) => {
+        if (name == item.name && password == item.password) {
+          console.log("Log in Successfully")
+          router.push("/contact");
+        }
       });
+    });
   };
 
   return (
@@ -33,6 +30,7 @@ function Login() {
               Username
             </label>
             <input
+              required=""
               placeholder="User Name"
               type="text"
               className='className="shadow appearance-none border 
@@ -53,6 +51,7 @@ function Login() {
               }}
               placeholder="Password"
               type="password"
+              required
               className='className="shadow appearance-none border rounded w-full py-2 px-3 
             text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
             id="password" type="password"'
