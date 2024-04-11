@@ -20,6 +20,7 @@ function Register_page() {
         })
         .then(() => {
           router.push("/login");
+          
         });
     } else {
       alert("Passwords don't match");
